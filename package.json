@@ -1,0 +1,66 @@
+{
+  "name": "keyboard-pause",
+  "version": "0.1.0",
+  "productName": "Keyboard Pause",
+  "description": "A Windows app for temporarily blocking keyboard and touchpad input while cleaning.",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/start.ps1",
+    "prepare-icon": "powershell -NoProfile -ExecutionPolicy Bypass -File ./scripts/prepare-icon.ps1",
+    "pack": "npm run prepare-icon && electron-builder --dir",
+    "dist": "npm run prepare-icon && electron-builder --win"
+  },
+  "keywords": [
+    "electron",
+    "windows",
+    "keyboard",
+    "cleaner",
+    "lock"
+  ],
+  "author": "",
+  "license": "MIT",
+  "build": {
+    "appId": "com.keyboardpause.app",
+    "productName": "Keyboard Pause",
+    "asarUnpack": [
+      "native/**/*"
+    ],
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "native/**/*",
+      "src/**/*",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "runAfterFinish": false,
+      "shortcutName": "Keyboard Pause"
+    }
+  },
+  "devDependencies": {
+    "electron": "^42.2.0",
+    "electron-builder": "^26.8.1"
+  }
+}

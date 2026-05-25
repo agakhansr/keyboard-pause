@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Cleaner</title>
+    <link rel="icon" type="image/png" href="../assets/keyboard.png">
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+
+    <main class="app">
+      <section class="topbar" aria-label="App status">
+        <div>
+          <p class="eyebrow">Windows cleaning lock</p>
+          <h1>Keyboard Cleaner</h1>
+        </div>
+        <div id="statusPill" class="status-pill">Starting helper</div>
+      </section>
+
+      <section class="controls" aria-label="Lock controls">
+        <article class="control">
+          <div class="control-copy">
+            <span class="icon"><img class="icon-img" src="../assets/keyboard.png" alt=""></span>
+            <div>
+              <h2>Keyboard</h2>
+              <p>Blocks physical key input while you wipe the keys.</p>
+            </div>
+          </div>
+          <button id="keyboardBtn" class="toggle" type="button" aria-pressed="false">
+            Block keyboard
+          </button>
+        </article>
+
+        <article class="control">
+          <div class="control-copy">
+            <span class="icon text-icon">TP</span>
+            <div>
+              <h2>Touchpad / Mouse</h2>
+              <p>Blocks pointer movement and clicks from touchpads and mice.</p>
+            </div>
+          </div>
+          <button id="pointerBtn" class="toggle" type="button" aria-pressed="false">
+            Block touchpad
+          </button>
+        </article>
+      </section>
+
+      <section class="clean-panel" aria-label="Cleaning session">
+        <div>
+          <h2>Cleaning session</h2>
+          <p class="muted">Use the emergency shortcut to stop blocking anytime: <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>U</kbd></p>
+        </div>
+
+        <div class="session-actions">
+          <label class="timer">
+            Auto-unlock
+            <select id="timerSelect">
+              <option value="0">Off</option>
+              <option value="30">30 seconds</option>
+              <option value="60" selected>1 minute</option>
+              <option value="120">2 minutes</option>
+              <option value="300">5 minutes</option>
+            </select>
+          </label>
+          <button id="startBtn" class="primary" type="button">Block both</button>
+          <button id="unlockBtn" class="secondary" type="button">Unlock all</button>
+        </div>
+
+        <div id="countdown" class="countdown" hidden></div>
+      </section>
+
+      <section id="alert" class="alert" hidden></section>
+    </main>
+
+    <script src="./renderer.js"></script>
+  </body>
+</html>

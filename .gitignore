@@ -1,0 +1,38 @@
+node_modules/
+
+# Build output
+dist/
+out/
+release/
+*.blockmap
+
+# Generated app icon
+build/
+
+# Logs
+*.log
+startup-error.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Environment and local config
+.env
+.env.*
+!.env.example
+
+# Electron Builder cache/output leftovers
+builder-debug.yml
+builder-effective-config.yaml
+
+# OS files
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
